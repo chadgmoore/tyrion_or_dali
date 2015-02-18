@@ -1,0 +1,294 @@
+/*Main CSS Styles*/
+
+/*
+purple #C300FF;
+green #00FF00;
+blue - dali #1485CC;
+yellow - tyrion #FFFC19;
+red #FF0000;
+*/
+
+body, html{
+  width: 988px;
+  background-color: #C300FF;
+  font-family: 'Open Sans', sans-serif;  
+  margin-bottom: 1em;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 0em;
+  padding-top: 0em;
+}
+
+/*Main Wrapper*/
+#wrapper{
+  width: 100%;
+  height: 728px;
+  margin-right: auto;
+  margin-left: auto;
+  background-image: url("../img/tyrion_or_dali.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  text-align: center;
+}
+
+#wrapper h1{
+  font-size: 3.2em;
+  letter-spacing: 0em;
+  text-align: center;
+  font-family: 'Titillium Web', sans-serif;
+  background-color: #C300FF;
+  margin-top: 0em;
+  padding-bottom: .2em;
+  padding-top: .2em;
+  padding-left: 2em;
+  padding-right: 2em;
+  letter-spacing: .22em;
+}
+
+#wrapper h2{
+  color: #2A607F;
+}
+
+#tyrion{
+  color: #FFFC19;
+}
+
+#dali{
+  color: #1485CC;
+}
+
+#green{
+  color: #00FF00; 
+}
+
+#tyrion, #dali{
+  padding-left: .33em;
+  padding-right: .33em;
+  background-color: #000;
+}
+
+a{  
+color: #CCCCCC; 
+text-decoration: none;
+}
+
+a:hover{
+  color: #C300FF;
+  }
+
+/*Instructions*/
+.instructions {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 40em;
+    line-height: 2em;
+    height: 10em;
+    margin-left: -322px;
+    margin-top: -100px;
+    background-color: #000;
+    text-align: center;
+    color: #C300FF;
+    font-size: 1em;
+    font-style: italic;
+    padding-top: 2em;
+    border-radius: .66em;
+    border-color: #C300FF;
+    border-style: solid;
+    border-width: .33em;
+    opacity: 0;
+}
+
+.instructions h1{
+  font-family: 'Titillium Web';
+  font-size: 4em; 
+  color: #C300FF;
+}
+
+.instructions h2{
+  margin: 0;
+}
+
+/*Status Info*/
+.status {
+    position: fixed;
+    top: 28%;
+    left: 50%;
+    width: 20em;
+    line-height: 2em;
+    height: 5em;
+    margin-left: -164px;
+    margin-top: -100px;
+    background-color: #000;
+    text-align: center;
+    color: #808080;
+    font-size: 1em;
+    border-radius: .66em;
+    border-color: #C300FF;
+    border-style: solid;
+    border-width: .33em;
+    opacity: 0;
+}
+
+.status ul{
+  list-style: none;
+  text-align: center;
+  margin: 0;
+  padding-top: 1em;
+  padding-top: 1em;
+  padding-left: 0em;
+  padding-right: 0em;
+}
+
+.status li{
+  display: inline-block;
+  padding-left: .1em;
+  padding-right: .1em;
+}
+
+/*Questions*/
+.questions {
+    /* some styles to position the modal at the center of the page */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 20em;
+    line-height: 2em;
+    height: 10em;
+    margin-left: -164px;
+    margin-top: -100px;
+    background-color: #000;
+    text-align: center;
+    color: #C300FF;
+    font-size: 1em;
+    font-style: italic;
+    padding-top: 2em;
+    border-radius: .66em;
+    border-color: #C300FF;
+    border-style: solid;
+    border-width: .33em;
+    opacity: 0;
+  
+    /* needed styles for the overlay */
+    /*z-index: 10; 
+    outline: 9999px solid rgba(195,0,255,0.33);*/
+}
+
+#correct{
+  color: #00FF00;
+}
+
+#incorrect{
+  color: #FF0000;
+}
+
+#activeQuestion{
+  color: #CCCCCC;
+}
+
+#inactiveQuestion{
+  color: 808080;
+}
+
+/*Buttons*/
+.buttonTyrion {
+  border-radius: .33em;
+  border-color: #FFFC19;
+  border-style: solid;
+  border-width: .1em;
+  background: #000;
+  padding: 5px 10px;
+  font-size: 2.2em;
+  letter-spacing: .11em;
+  text-align: center;
+  font-family: 'Titillium Web', sans-serif;
+  font-weight: bold;
+  color: #FFFC19;
+  text-decoration: none;
+  vertical-align: middle;
+  float: left;
+  margin-top: 2em;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+.buttonTyrion:hover {
+   background: #C300FF;
+   color: #fff;
+   border-radius: .33em;
+   border-color: #fff;
+   }
+
+.buttonDali {
+  border-radius: .33em;
+  border-color: #1485CC;
+  border-style: solid;
+  border-width: .1em;
+  background: #000;
+  padding: 5px 10px;
+  font-size: 2.2em;
+  letter-spacing: .11em;
+  text-align: center;
+  font-family: 'Titillium Web', sans-serif;
+  font-weight: bold;
+  color: #1485CC;
+  text-decoration: none;
+  vertical-align: middle;
+  float: right;
+  margin-top: .33em;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+.buttonDali:hover {
+   background: #C300FF;
+   color: #fff;
+   border-radius: .33em;
+   border-color: #fff;
+   }
+
+/*Footer & Social*/
+#footer{
+  width: 100%;
+  height: 2em;
+  color: #808080;
+  background-color: #404040;
+  text-align: left;
+  padding-top: 0.33em;
+  padding-bottom: 0.33em;
+  text-transform: uppercase;
+}
+
+#footer h1{
+  font-family: 'Open Sans';
+  font-size: .8em; 
+}
+
+#footer ul{
+  list-style: none;
+  text-align: right;
+  margin: 0;
+}
+
+#footer li{
+  display: inline-block;
+  padding-left: .33em;
+  padding-right: .33em;
+}
+
+#about{
+  width:50%;
+  float:left;
+  padding-left: 1em;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+#social{
+  width: 33.33%;
+  float: right;
+  font-size: .8em;
+  padding-right: 1em;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
