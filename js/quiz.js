@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-$(window).load(function () {
+$(window).load(function() {
     $('.instructions').delay(1600).animate({
         opacity: 1}), 3000, "easein";
 })
@@ -21,5 +21,6 @@ function newGame() {
         $('.buttonTyrion').delay(800).animate({opacity:1}, 2000, "easeout");
         $('.buttonDali').delay(800).animate({opacity:1}, 2000, "easeout");
         // Set the status icons back to new state
-        $('.status', 'ul id=inactiveQuestion');
+        // $('.status', 'ul id=inactiveQuestion');
+        
 	};
