@@ -243,8 +243,7 @@ a:hover{
   margin-top: 1.33em;
   z-index: 1;
   width: 50%;
-  cursor: pointer;
-  
+  cursor: pointer;  
 }
 .buttonTyrion:hover {
    background: #C300FF;
