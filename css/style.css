@@ -58,11 +58,11 @@ li{
   color: #2A607F;
 }
 
-#tyrion{
+#wrapperTyrion{
   color: #FFFC19;
 }
 
-#dali{
+#wrapperDali{
   color: #1485CC;
 }
 
@@ -70,7 +70,7 @@ li{
   color: #00FF00; 
 }
 
-#tyrion, #dali{
+#wrapperTyrion, #wrapperDali{
   padding-left: .33em;
   padding-right: .33em;
   background-color: #000;
@@ -228,7 +228,7 @@ a:hover{
 }
 
 /*Buttons*/
-.buttonTyrion {
+#tyrion {
   border-radius: .33em;
   border-color: #FFFC19;
   border-style: solid;
@@ -245,14 +245,14 @@ a:hover{
   width: 50%;
   cursor: pointer;  
 }
-.buttonTyrion:hover {
+#tyrion:hover {
    background: #C300FF;
    color: #fff;
    border-radius: .33em;
    border-color: #fff;
    }
 
-.buttonDali {
+#dali {
   border-radius: .33em;
   border-color: #1485CC;
   border-style: solid;
@@ -269,7 +269,8 @@ a:hover{
   width: 50%;
   cursor: pointer;
 }
-.buttonDali:hover {
+
+#dali:hover {
    background: #C300FF;
    color: #fff;
    border-radius: .33em;

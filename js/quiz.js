@@ -15,17 +15,23 @@ function newGame() {
   var ids = ["#q2", "#q3", "#q4", "#q5"];
     $.each(ids, function(index, value){
       $(this).css('color', '#808080');
+      //chenge the icon li class
   })
   getRandonQuote();
 };
 
-function getRandonQuote(){
-  var quotes = [
+var quotes = [
     "tyrion--Turns out, far too much has been written about great men and not nearly enough about morons.",
     "dali--Intelligence without ambition is a bird without wings.",
-    "tryion--I'm quite good at spending money, but a lifetime of outrageous wealth hasn't taught me much about managing it."
+    "tyrion--I'm quite good at spending money, but a lifetime of outrageous wealth hasn't taught me much about managing it."
   ];
 
+var gCorrectAuthor = '';
+
+//nextQuote function to get quote and answer and display
+// lesson 4 unit 2
+
+function getRandonQuote(){
   var foundQuote = Math.floor(Math.random()*quotes.length);
   var correctAuthor = quotes[foundQuote].split('--')[0];
   var quoteToDisplay = quotes[foundQuote].split('--')[1];
@@ -33,11 +39,11 @@ function getRandonQuote(){
   $('.questions').children('p').empty();
   $('.questions').children('p').append('<p><i class="fa fa-quote-left fa-1x"></i>"' + quoteToDisplay + '<i class="fa fa-quote-right fa-1x"></i></p>');
   
-  return (correctAuthor, quoteToDisplay);
+  gCorrectAuthor = correctAuthor;
 };
 
-function checkAnswer(guessedAuthor, correctAuthor){
-  if (guessedAuthor == correctAuthor){
+function checkAnswer(guessedAuthor){
+  if (guessedAuthor == gCorrectAuthor){
     console.log('CORRECT');
     var answerStatus = 'correct';
   }
@@ -58,7 +64,7 @@ function setStatus(answerStatus){
   }
 };
 
-$(document).ready(function() {
+$(document).ready(function(correctAuthor) {
 
 loadInstructions();
 
@@ -68,11 +74,11 @@ $('.instructions').on('click', function(event){
   });
 
 
-$('.buttonTyrion').on('click', function(correctAuthor){
-  var guessedAuthor = 'tyrion';
-  // correctAuthor = correctAuthor.value();
-  console.log('from tyrion button guessed - <' + guessedAuthor + '> - correct <' + correctAuthor + '>.')
-  checkAnswer(guessedAuthor, correctAuthor);
+$('.ansButton').on('click', function(){
+  var guessedAuthor = $(this).attr('id');
+  // console.log(guessedAuthor);
+  console.log('from tyrion button guessed - <' + guessedAuthor + '> - correct <' + gCorrectAuthor + '>.')
+  checkAnswer(guessedAuthor);
 });
 
 
