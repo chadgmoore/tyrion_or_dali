@@ -16,7 +16,7 @@ function newGame() {
     $.each(ids, function(index, value){
       $(this).css('color', '#808080');
   })
-  getRandonQuote();
+  getRandomQuote();
 };
 
 var quotes = [
@@ -30,16 +30,18 @@ var gUsedQuotes = [];
 
 var gCorrectAuthor = '';
 
+var gGameStatus = 1;
+
 //nextQuote function to get quote and answer and display
 function nextQuote(){
-  //Set the color of the active question to purple $(this).css('color', '#C300FF');
-  // var ids = ["#q2", "#q3", "#q4", "#q5"];
-  //   $.each(ids, function(index, value){
-  //     $(this).css('color', '#808080');
+  getRandomQuote();
+  gGameStatus += 1;
+  activeQuestion = '#q'+gGameStatus.toString();
+  $(activeQuestion).css('color', '#808080');
 };
 
 
-function getRandonQuote(){
+function getRandomQuote(){
   var foundQuote = Math.floor(Math.random()*quotes.length);
   var correctAuthor = quotes[foundQuote].split('--')[0];
   var quoteToDisplay = quotes[foundQuote].split('--')[1];
@@ -48,7 +50,7 @@ function getRandonQuote(){
     gUsedQuotes[gUsedQuotes.length] = quoteToDisplay;
   }
   else{
-    getRandonQuote(); //I HAVE A BAD FEELING ABOUT THIS
+    getRandomQuote(); //I HAVE A BAD FEELING ABOUT THIS
   }
   console.log(correctAuthor, quoteToDisplay);
   $('.questions').children('p').empty();
@@ -94,6 +96,7 @@ $('.instructions').on('click', function(event){
 $('.ansButton').on('click', function(){
   var guessedAuthor = $(this).attr('id');
   checkAnswer(guessedAuthor);
+  nextQuote();
 });
 
 
