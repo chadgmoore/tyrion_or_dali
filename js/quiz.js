@@ -1,4 +1,4 @@
-// make sure wuote isn't already used
+// make sure quote isn't already used
 // track question numbers and update icons accordingly
 
 function loadInstructions(){
@@ -15,30 +15,44 @@ function newGame() {
   var ids = ["#q2", "#q3", "#q4", "#q5"];
     $.each(ids, function(index, value){
       $(this).css('color', '#808080');
-      //chenge the icon li class
   })
   getRandonQuote();
 };
 
 var quotes = [
     "tyrion--Turns out, far too much has been written about great men and not nearly enough about morons.",
-    "dali--Intelligence without ambition is a bird without wings.",
-    "tyrion--I'm quite good at spending money, but a lifetime of outrageous wealth hasn't taught me much about managing it."
+    "tyrion--I'm quite good at spending money, but a lifetime of outrageous wealth hasn't taught me much about managing it.",
+    "dali--Intelligence without ambition is a bird without wings."
+
   ];
+
+var gUsedQuotes = [];
 
 var gCorrectAuthor = '';
 
 //nextQuote function to get quote and answer and display
-// lesson 4 unit 2
+function nextQuote(){
+  //Set the color of the active question to purple $(this).css('color', '#C300FF');
+  // var ids = ["#q2", "#q3", "#q4", "#q5"];
+  //   $.each(ids, function(index, value){
+  //     $(this).css('color', '#808080');
+};
+
 
 function getRandonQuote(){
   var foundQuote = Math.floor(Math.random()*quotes.length);
   var correctAuthor = quotes[foundQuote].split('--')[0];
   var quoteToDisplay = quotes[foundQuote].split('--')[1];
+  isUsed = $.inArray(quoteToDisplay, gUsedQuotes);
+  if (isUsed == -1){
+    gUsedQuotes[gUsedQuotes.length] = quoteToDisplay;
+  }
+  else{
+    getRandonQuote(); //I HAVE A BAD FEELING ABOUT THIS
+  }
   console.log(correctAuthor, quoteToDisplay);
   $('.questions').children('p').empty();
-  $('.questions').children('p').append('<p><i class="fa fa-quote-left fa-1x"></i>"' + quoteToDisplay + '<i class="fa fa-quote-right fa-1x"></i></p>');
-  
+  $('.questions').children('p').append('<p><i class="fa fa-quote-left fa-1x"></i>' + quoteToDisplay + '<i class="fa fa-quote-right fa-1x"></i></p>');
   gCorrectAuthor = correctAuthor;
 };
 
@@ -57,10 +71,13 @@ function checkAnswer(guessedAuthor){
 function setStatus(answerStatus){
   //count the questions?
   if (answerStatus == 'correct'){
-    $('#q1').css('color', '#00FF00')
+    $('#q1').css('color', '#00FF00');
+    document.getElementById("q1").className = "fa fa-check-circle fa-3x";
   }
   else {
-    $('#q1').css('color', '#FF0000')
+    $('#q1').css('color', '#FF0000');
+    document.getElementById("q1").className = "fa fa-times-circle fa-3x";
+
   }
 };
 
@@ -76,8 +93,6 @@ $('.instructions').on('click', function(event){
 
 $('.ansButton').on('click', function(){
   var guessedAuthor = $(this).attr('id');
-  // console.log(guessedAuthor);
-  console.log('from tyrion button guessed - <' + guessedAuthor + '> - correct <' + gCorrectAuthor + '>.')
   checkAnswer(guessedAuthor);
 });
 
