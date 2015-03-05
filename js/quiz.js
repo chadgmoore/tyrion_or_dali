@@ -12,7 +12,7 @@ function newGame() {
   $('#q1').css('color', '#C300FF');
   var ids = ["#q2", "#q3", "#q4", "#q5"];
     $.each(ids, function(index, value){
-      $(this).css('color', '#808080');
+      $(value).css('color', '#808080');
   })
   getRandomQuote();
 };
@@ -20,8 +20,31 @@ function newGame() {
 var quotes = [
     "tyrion--Turns out, far too much has been written about great men and not nearly enough about morons.",
     "tyrion--I'm quite good at spending money, but a lifetime of outrageous wealth hasn't taught me much about managing it.",
-    "dali--Intelligence without ambition is a bird without wings."
-
+    "tyrion--It's not easy being drunk all the time. Everyone would do it if it were easy.",
+    "tyrion--Why are you sorry? Because you're an evil bastard with no conscience and no heart? That's what I liked about you in the first place.", 
+    "tyrion--I'm not particularly good at violence, but I'm good at convincing others to do violence for me.",
+    "tyrion--When I was ten, I stuffed my uncle's boots with goat shit.",
+    "tyrion--Cut off his manhood and feed it to the goats.",
+    "tyrion--I'm not questioning your honor, Lord Janos. I'm denying its existence.", 
+    "tyrion--You love your children. It's your one redeeming quality - that and your cheekbones.", 
+    "tyrion--I've offended you. Forgive me. It's been a rough morning. Anyway, don't despair. I'm a constant disappointment to my own father and I've learned to live with it",
+    "tyrion--I demand a trial by combat!", 
+    "tyrion--I don't pay you to put evil notions in my head. The ones already there don't need company.", 
+    "dali--Intelligence without ambition is a bird without wings.",
+    "dali--There is only one difference between a madman and me. The madman thinks he is sane. I know I am mad.",
+    "dali--The first man to compare the cheeks of a young woman to a rose was obviously a poet; the first to repeat it was possibly an idiot.",
+    "dali--There are some days when I think I'm going to die from an overdose of satisfaction.",
+    "dali--Let my enemies devour each other.",
+    "dali--The secret of my influence has always been that it remained secret.",
+    "dali--Liking money like I like it, is nothing less than mysticism. Money is a glory.",
+    "dali--I seated ugliness on my knee, and almost immediately grew tired of it.",
+    "dali--Democratic societies are unfit for the publication of such thunderous revelations as I am in the habit of making.",
+    "dali--What is important is to spread confusion, not eliminate it.",
+    "dali--Intelligence without ambition is a bird without wings.",
+    "dali--It is not necessary for the public to know whether I am joking or whether I am serious, just as it is not necessary for me to know it myself.",
+    "dali--So little of what could happen does happen.",
+    "dali--I am not strange. I am just not normal.",
+    "dali--You have to systematically create confusion, it sets creativity free. Everything that is contradictory creates life."
   ];
 
 var gUsedQuotes = [];
@@ -30,13 +53,14 @@ var gCorrectAuthor = '';
 
 var gGameStatus = 1;
 
-var gActiveQuestion = '';
+var gActiveQuestion = '#q'+gGameStatus.toString();
 
 function nextQuote(){
   getRandomQuote();
   gGameStatus += 1;
   gActiveQuestion = '#q'+gGameStatus.toString();
   $(gActiveQuestion).css('color', '#C300FF');
+  // end game a 5
   return gActiveQuestion;
 };
 
@@ -51,10 +75,13 @@ function getRandomQuote(){
   }
   else{
     getRandomQuote(); //I HAVE A BAD FEELING ABOUT THIS
+    return false;
   }
   console.log(correctAuthor, quoteToDisplay);
-  $('.questions').children('p').empty();
-  $('.questions').children('p').append('<p><i class="fa fa-quote-left fa-1x"></i>' + quoteToDisplay + '<i class="fa fa-quote-right fa-1x"></i></p>');
+  $('.questions')
+    .children('p')
+    .empty()
+    .append('<p><i class="fa fa-quote-left fa-1x"></i>' + quoteToDisplay + '<i class="fa fa-quote-right fa-1x"></i></p>');
   gCorrectAuthor = correctAuthor;
 };
 
@@ -70,14 +97,17 @@ function checkAnswer(guessedAuthor){
   setStatus(answerStatus);
 };
 
-function setStatus(answerStatus, gActiveQuestion){
+function setStatus(answerStatus){
+  console.log(gActiveQuestion);
+  var tempId = gActiveQuestion.split('#')[1];
+  console.log(tempId);
   if (answerStatus == 'correct'){
     $(gActiveQuestion).css('color', '#00FF00');
-    // document.getElementById(gActiveQuestion).className = "fa fa-check-circle fa-3x";
+    document.getElementById(tempId).className = "fa fa-check-circle fa-3x";
   }
   else {
     $(gActiveQuestion).css('color', '#FF0000');
-    // document.getElementById(gActiveQuestion).className = "fa fa-times-circle fa-3x";
+    document.getElementById(tempId).className = "fa fa-times-circle fa-3x";
 
   }
 };
