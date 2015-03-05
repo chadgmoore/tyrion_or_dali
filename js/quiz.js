@@ -1,5 +1,3 @@
-// make sure quote isn't already used
-// track question numbers and update icons accordingly
 
 function loadInstructions(){
   $('.instructions').delay(800).animate({opacity: 1, duration: "slow", easing: "easein"});
@@ -32,12 +30,14 @@ var gCorrectAuthor = '';
 
 var gGameStatus = 1;
 
-//nextQuote function to get quote and answer and display
+var gActiveQuestion = '';
+
 function nextQuote(){
   getRandomQuote();
   gGameStatus += 1;
-  activeQuestion = '#q'+gGameStatus.toString();
-  $(activeQuestion).css('color', '#808080');
+  gActiveQuestion = '#q'+gGameStatus.toString();
+  $(gActiveQuestion).css('color', '#C300FF');
+  return gActiveQuestion;
 };
 
 
@@ -70,15 +70,14 @@ function checkAnswer(guessedAuthor){
   setStatus(answerStatus);
 };
 
-function setStatus(answerStatus){
-  //count the questions?
+function setStatus(answerStatus, gActiveQuestion){
   if (answerStatus == 'correct'){
-    $('#q1').css('color', '#00FF00');
-    document.getElementById("q1").className = "fa fa-check-circle fa-3x";
+    $(gActiveQuestion).css('color', '#00FF00');
+    // document.getElementById(gActiveQuestion).className = "fa fa-check-circle fa-3x";
   }
   else {
-    $('#q1').css('color', '#FF0000');
-    document.getElementById("q1").className = "fa fa-times-circle fa-3x";
+    $(gActiveQuestion).css('color', '#FF0000');
+    // document.getElementById(gActiveQuestion).className = "fa fa-times-circle fa-3x";
 
   }
 };
