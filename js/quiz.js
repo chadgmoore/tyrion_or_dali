@@ -69,22 +69,27 @@ function nextQuote(){
   console.log("Number of questions asked = " + questionsAsked);
   if (questionsAsked == 5) {
     console.log("You scored a " + playerProgression + " out of "+ questionsAsked)
-  
+
+
   $('.questions')
     .children('p')
     .empty()
-    .append('You scored a ' + playerProgression + ' out of ' + questionsAsked + '! </br>' + ' Reload to try again!');   
-    //remove name answer buttons
-    $('.buttonTyrion').delay(1600).animate({opacity: 0, duration: "slow", easing: "easein"});
-    $('.buttonDali').delay(1600).animate({opacity: 0, duration: "slow", easing: "easein"});
+    .append('You scored a ' + playerProgression + ' out of ' + questionsAsked + '! </br>' + ' Reload to try again!');
+  
+    //Hide the buttons here
+    $( "#dali" ).hide();
+    $( "#tyrion" ).hide();
+
   }
+ 
   else{
       getRandomQuote();
+      gGameStatus += 1;
+      gActiveQuestion = '#q'+gGameStatus.toString();
+      $(gActiveQuestion).css('color', '#C300FF');
   }
 
-  gGameStatus += 1;
-  gActiveQuestion = '#q'+gGameStatus.toString();
-  $(gActiveQuestion).css('color', '#C300FF');
+ 
 
   return gActiveQuestion;
 
@@ -100,7 +105,7 @@ function getRandomQuote(){
     gUsedQuotes[gUsedQuotes.length] = quoteToDisplay;
   }
   else{
-    getRandomQuote(); //I HAVE A BAD FEELING ABOUT THIS
+    getRandomQuote(); 
     return false;
   }
   console.log(correctAuthor, quoteToDisplay);
