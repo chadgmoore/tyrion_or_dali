@@ -8,6 +8,7 @@ function newGame() {
   $('.questions').delay(800).animate({opacity: 1, duration: "slow", easing: "easein"});
   $('.buttonTyrion').delay(1600).animate({opacity: 1, duration: "slow", easing: "easein"});
   $('.buttonDali').delay(1600).animate({opacity: 1, duration: "slow", easing: "easein"});
+
   // Set the status icons back to new state
   $('#q1').css('color', '#C300FF');
   var ids = ["#q2", "#q3", "#q4", "#q5"];
@@ -72,7 +73,10 @@ function nextQuote(){
   $('.questions')
     .children('p')
     .empty()
-    .append('You scored a ' + playerProgression + ' out of ' + questionsAsked + '!');    
+    .append('You scored a ' + playerProgression + ' out of ' + questionsAsked + '! </br>' + ' Reload to try again!');   
+    //remove name answer buttons
+    $('.buttonTyrion').delay(1600).animate({opacity: 0, duration: "slow", easing: "easein"});
+    $('.buttonDali').delay(1600).animate({opacity: 0, duration: "slow", easing: "easein"});
   }
   else{
       getRandomQuote();
