@@ -55,6 +55,8 @@ var gGameStatus = 1;
 
 var gActiveQuestion = '#q'+gGameStatus.toString();
 
+var playerProgression = 0;
+
 function nextQuote(){
   getRandomQuote();
   gGameStatus += 1;
@@ -104,13 +106,20 @@ function setStatus(answerStatus){
   if (answerStatus == 'correct'){
     $(gActiveQuestion).css('color', '#00FF00');
     document.getElementById(tempId).className = "fa fa-check-circle fa-3x";
+    playerProgression = playerProgression + 1;
+    console.log(playerProgression);
   }
   else {
     $(gActiveQuestion).css('color', '#FF0000');
     document.getElementById(tempId).className = "fa fa-times-circle fa-3x";
+    playerProgression = playerProgression + 0;
+    console.log(playerProgression);
 
   }
 };
+
+//notify player in ui of their percentage
+//load next question
 
 $(document).ready(function(correctAuthor) {
 
