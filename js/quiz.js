@@ -57,13 +57,33 @@ var gActiveQuestion = '#q'+gGameStatus.toString();
 
 var playerProgression = 0;
 
+var gameEnd = 5;
+
+var questionsAsked = 0;
+
 function nextQuote(){
-  getRandomQuote();
+
+  // end game a 5
+  questionsAsked = questionsAsked + 1;
+  console.log("Number of questions asked = " + questionsAsked);
+  if (questionsAsked == 5) {
+    console.log("You scored a " + playerProgression + " out of "+ questionsAsked)
+  
+  $('.questions')
+    .children('p')
+    .empty()
+    .append('You scored a ' + playerProgression + ' out of ' + questionsAsked + '!');    
+  }
+  else{
+      getRandomQuote();
+  }
+
   gGameStatus += 1;
   gActiveQuestion = '#q'+gGameStatus.toString();
   $(gActiveQuestion).css('color', '#C300FF');
-  // end game a 5
+
   return gActiveQuestion;
+
 };
 
 
@@ -114,12 +134,9 @@ function setStatus(answerStatus){
     document.getElementById(tempId).className = "fa fa-times-circle fa-3x";
     playerProgression = playerProgression + 0;
     console.log(playerProgression);
-
   }
 };
 
-//notify player in ui of their percentage
-//load next question
 
 $(document).ready(function(correctAuthor) {
 
