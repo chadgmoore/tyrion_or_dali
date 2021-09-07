@@ -76,6 +76,7 @@ function nextQuote(){
     .children('p')
     .empty()
     .append('You scored a ' + playerProgression + ' out of ' + questionsAsked + '! </br>' + ' Reload to try again!');
+
   
     //Hide the buttons here
     $( "#dali" ).hide();

@@ -46,6 +46,7 @@ li{
   letter-spacing: 0em;
   text-align: center;
   font-family: 'Titillium Web', sans-serif;
+  color:  #fff;
   background-color: #000;
   margin-top: 0em;
   padding-bottom: .2em;
@@ -254,6 +255,7 @@ a:hover{
   color: #fff;
   background-color: #C300FF;
 }
+
 
 #tyrion {
   border-radius: .33em;
