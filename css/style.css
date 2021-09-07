@@ -46,7 +46,7 @@ li{
   letter-spacing: 0em;
   text-align: center;
   font-family: 'Titillium Web', sans-serif;
-  background-color: #C300FF;
+  background-color: #000;
   margin-top: 0em;
   padding-bottom: .2em;
   padding-top: .2em;
@@ -56,7 +56,7 @@ li{
 }
 
 #wrapper h2{
-  color: #2A607F;
+  color: #FFF;
 }
 
 #wrapperTyrion{
@@ -94,7 +94,7 @@ a:hover{
     left: 50%;
     width: 40em;
     line-height: 2em;
-    height: 10em;
+    height: 20em;
     margin-left: -322px;
     margin-top: -50px;
     background-color: #000;
@@ -104,9 +104,9 @@ a:hover{
     font-style: italic;
     padding-top: 2em;
     border-radius: .66em;
-    border-color: #C300FF;
-    border-style: solid;
     border-width: .33em;
+    border-color: #FFF;
+    border-style: solid;
     opacity: 0;
     cursor: default;
 }
@@ -177,7 +177,7 @@ a:hover{
     font-style: italic;
     padding-top: 2em;
     border-radius: .66em;
-    border-color: #C300FF;
+    /*border-color: #C300FF;*/
     border-style: solid;
     border-width: .33em;
     opacity: 0;
@@ -229,6 +229,32 @@ a:hover{
 }
 
 /*Buttons*/
+
+
+.startButton{
+  border-radius: .33em;
+  border-color: #C300FF;
+  border-style: solid;
+  border-width: .1em;
+  background: #000;
+  font-size: 2.2em;
+  letter-spacing: .11em;
+  text-align: center;
+  font-family: 'Titillium Web', sans-serif;
+  font-weight: bold;
+  color: #C300FF;
+  margin-top: 1.33em;
+  z-index: 1;
+  width: 50%;
+  cursor: pointer;  
+}
+
+
+.startButton:hover{
+  color: #fff;
+  background-color: #C300FF;
+}
+
 #tyrion {
   border-radius: .33em;
   border-color: #FFFC19;

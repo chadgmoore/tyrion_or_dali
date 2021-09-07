@@ -8,6 +8,7 @@ function newGame() {
   $('.questions').delay(800).animate({opacity: 1, duration: "slow", easing: "easein"});
   $('.buttonTyrion').delay(1600).animate({opacity: 1, duration: "slow", easing: "easein"});
   $('.buttonDali').delay(1600).animate({opacity: 1, duration: "slow", easing: "easein"});
+  $('.instructions').delay(100).animate({opacity: 0, duration: "slow", easing: "easein"});
 
   // Set the status icons back to new state
   $('#q1').css('color', '#C300FF');
@@ -151,7 +152,7 @@ $(document).ready(function(correctAuthor) {
 
 loadInstructions();
 
-$('.instructions').on('click', function(event){
+$('.startButton').on('click', function(event){
   $(this).animate({opacity: 0, duration: "slow", easing: "easein"});
   newGame();
   });
